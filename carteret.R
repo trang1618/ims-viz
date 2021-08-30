@@ -47,15 +47,6 @@ carteret_tree <- carteret_tree_df %>%
 ggsave("figs/carteret-tree.png", carteret_tree, height = 4, width = 5)
 
 fig
-d <- diamonds[sample(nrow(diamonds), 1000), ]
-
-p <- ggplot(data = d, aes(x = carat, y = price)) +
-  geom_point(aes(text = paste("Clarity:", clarity)), size = 4) +
-  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
-
-fig <- ggplotly(p)
-
-fig
 
 carteret_age <- get_acs(
   state = "NC", county = "Carteret", geography = "tract",
